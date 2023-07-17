@@ -1,0 +1,132 @@
+@use 'reset';
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+$breakpoints: (
+  // 640px
+  small: 40em,
+  // 1040px
+  medium: 65em
+);
+@mixin mq($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media screen and (min-width: map-get($breakpoints,$size)) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $size) {
+      @content;
+    }
+  }
+}
+// Desing
+body {
+  font-family: 'Space Mono', monospace;
+  background-color: #cce3e6;
+  display: grid;
+  place-items: center;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+span {
+  color: hsl(186, 14%, 43%);
+}
+input {
+  width: 100%;
+  background-color: #f4f8fb;
+  color: hsl(184, 14%, 56%);
+  border: none;
+  outline: none;
+  padding-block: 0.2em;
+  padding-right: 0.5em;
+  border-radius: 0.3em;
+  font-size: 24px;
+  text-align-last: right;
+}
+
+input:focus {
+  color: hsl(183, 100%, 15%);
+  outline: 1px solid hsl(172, 67%, 45%);
+}
+.btn {
+  background-color: hsl(183, 100%, 15%);
+  color: white;
+  padding-block: 0.2em;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 0.3em;
+  &:focus {
+    background-color: hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+  }
+}
+.wrapper {
+  width: clamp(320px, 90vw, 850px);
+  margin-inline: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  &__header {
+    margin-inline: auto;
+    margin-block: 2em;
+  }
+}
+.calculator {
+  border-radius: 1.5em;
+
+  padding: 2em;
+  background-color: white;
+  display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: 1fr;
+  gap: 2em;
+  @include mq(small) {
+    grid-template-columns: 1fr 1fr;
+  }
+  &__form {
+    display: grid;
+    gap: 2em;
+    &-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+    &-buttons {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1em;
+      @include mq(small) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+  &__result {
+    display: flex;
+    flex-direction: column;
+    background-color: hsl(183, 100%, 15%);
+    padding: 2em;
+    border-radius: 1em;
+    @include mq(small) {
+      justify-content: space-between;
+    }
+
+    &-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2em;
+    }
+    &-title {
+      color: white;
+    }
+    &-number {
+      font-size: 30px; //defifiir con clamp()
+      color: hsl(172, 67%, 45%);
+    }
+    .btn--reset {
+      background-color: #3a676c;
+      color: hsl(186, 14%, 43%);
+    }
+  }
+}

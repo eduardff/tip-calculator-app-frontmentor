@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <main>
+      <div class="container wrapper">
+        <header class="container__header">
+          <img src="public/logo.svg" alt="" />
+        </header>
+        <section class="calculator">
+          <!-- 1 -->
+          <div class="calculator__form">
+            <div class="calculator__form-group">
+              <span>Bill</span>
+              <input type="text" placeholder="0" id="bill" />
+            </div>
+            <div class="calculator__form-group">
+              <span>Select Tip %</span>
+              <div class="calculator__form-buttons">
+                <button class="btn">5%</button>
+                <button class="btn">10%</button>
+                <button class="btn">15%</button>
+                <button class="btn">25%</button>
+                <button class="btn">50%</button>
+                <input type="text" placeholder="Custom" />
+              </div>
+            </div>
+            <div class="calculator__form-group">
+              <span>Number of People</span>
+              <input type="text" placeholder="0" id="number-people" />
+            </div>
+          </div>
+          <!-- 2 -->
+          <div class="calculator__result">
+            <div>
+              <div class="calculator__result-group">
+                <div>
+                  <p class="calculator__result-title">Tip Amount</p>
+                  <span>/ Person</span>
+                </div>
+                <div>
+                  <p class="calculator__result-number">$0.00</p>
+                </div>
+              </div>
+              <div class="calculator__result-group">
+                <div>
+                  <p class="calculator__result-title">Total</p>
+                  <span>/ Person</span>
+                </div>
+                <div>
+                  <p class="calculator__result-number">$0.00</p>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn--reset">RESET</button>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
