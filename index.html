@@ -17,22 +17,32 @@
           <div class="calculator__form">
             <div class="calculator__form-group">
               <span>Bill</span>
-              <input type="text" placeholder="0" id="bill" />
+              <input type="text" placeholder="0" id="bill" class="input-bill" />
             </div>
             <div class="calculator__form-group">
               <span>Select Tip %</span>
-              <div class="calculator__form-buttons">
-                <button class="btn">5%</button>
-                <button class="btn">10%</button>
-                <button class="btn">15%</button>
-                <button class="btn">25%</button>
-                <button class="btn">50%</button>
-                <input type="text" placeholder="Custom" />
+              <div class="calculator__form-buttons" id="buttons-number">
+                <button class="btn">5</button>
+                <button class="btn">10</button>
+                <button class="btn">15</button>
+                <button class="btn">25</button>
+                <button class="btn">50</button>
+                <input type="text" placeholder="Custom" id="custom-number" />
               </div>
             </div>
             <div class="calculator__form-group">
-              <span>Number of People</span>
-              <input type="text" placeholder="0" id="number-people" />
+              <div class="calculator__form-message">
+                <span>Number of People</span>
+                <small class="error-message" id="error-message"
+                  >can't be zero</small
+                >
+              </div>
+              <input
+                type="text"
+                placeholder="0"
+                id="number-people"
+                class="input-people"
+              />
             </div>
           </div>
           <!-- 2 -->
@@ -44,7 +54,7 @@
                   <span>/ Person</span>
                 </div>
                 <div>
-                  <p class="calculator__result-number">$0.00</p>
+                  <p class="calculator__result-number" id="amount">$0.00</p>
                 </div>
               </div>
               <div class="calculator__result-group">
@@ -53,11 +63,11 @@
                   <span>/ Person</span>
                 </div>
                 <div>
-                  <p class="calculator__result-number">$0.00</p>
+                  <p class="calculator__result-number" id="total">$0.00</p>
                 </div>
               </div>
             </div>
-            <button class="btn btn--reset">RESET</button>
+            <button class="btn btn--reset" id="btn-reset">RESET</button>
           </div>
         </section>
       </div>

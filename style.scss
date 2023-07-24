@@ -23,9 +23,6 @@ body {
   background-color: #cce3e6;
   display: grid;
   place-items: center;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
 }
 span {
   color: hsl(186, 14%, 43%);
@@ -41,11 +38,27 @@ input {
   border-radius: 0.3em;
   font-size: 24px;
   text-align-last: right;
+  color: hsl(183, 100%, 15%);
+}
+.input-bill {
+  background-image: url('icon-dollar.svg');
+  background-repeat: no-repeat;
+  background-position: center left 15px;
+}
+.input-people {
+  background-image: url('icon-person.svg');
+  background-repeat: no-repeat;
+  background-position: center left 15px;
 }
 
 input:focus {
-  color: hsl(183, 100%, 15%);
   outline: 1px solid hsl(172, 67%, 45%);
+}
+.input-error {
+  outline: 1px solid red;
+  &:focus {
+    outline: 1px solid red;
+  }
 }
 .btn {
   background-color: hsl(183, 100%, 15%);
@@ -55,10 +68,14 @@ input:focus {
   font-size: 24px;
   cursor: pointer;
   border-radius: 0.3em;
-  &:focus {
-    background-color: hsl(172, 67%, 45%);
-    color: hsl(183, 100%, 15%);
-  }
+  // &:focus {
+  //   background-color: hsl(172, 67%, 45%);
+  //   color: hsl(183, 100%, 15%);
+  // }
+}
+.btn-active {
+  background-color: hsl(172, 67%, 45%);
+  color: hsl(183, 100%, 15%);
 }
 .wrapper {
   width: clamp(320px, 90vw, 850px);
@@ -75,11 +92,9 @@ input:focus {
 }
 .calculator {
   border-radius: 1.5em;
-
   padding: 2em;
   background-color: white;
   display: grid;
-  // grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-template-columns: 1fr;
   gap: 2em;
   @include mq(small) {
@@ -93,13 +108,28 @@ input:focus {
       flex-direction: column;
       gap: 0.5em;
     }
+
     &-buttons {
+      button::before {
+        content: '$';
+      }
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 1em;
       @include mq(small) {
         grid-template-columns: repeat(3, 1fr);
       }
+    }
+    &-message {
+      display: flex;
+      justify-content: space-between;
+    }
+    .error-message {
+      color: red;
+      opacity: 0;
+    }
+    .show-message-error {
+      opacity: 1;
     }
   }
   &__result {
@@ -121,12 +151,17 @@ input:focus {
       color: white;
     }
     &-number {
-      font-size: 30px; //defifiir con clamp()
+      font-size: clamp(1.875rem, 1.5731rem + 1.5094vw, 2.375rem);
+
       color: hsl(172, 67%, 45%);
     }
     .btn--reset {
       background-color: #3a676c;
       color: hsl(186, 14%, 43%);
+    }
+    .btn--reset-active {
+      background-color: hsl(172, 67%, 45%);
+      color: hsl(183, 100%, 15%);
     }
   }
 }
